@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Encriptador de Texto</title>
+    <link rel="stylesheet" href="desafio.css">
+    <link rel="stylesheet" href="reset.css">
+
+</head>
+
+<header>
+
+</header>
+
+<body>
+    <div class="contenido">
+      <div class="text-contenido">
+    <!-- Un simple ejemplo de un label con el atributo for -->
+    <label class="textingresa" for="ingresa-text">Ingresa texto</label required>
+    <textarea id="ingresa-text" placeholder="Escribe aqui..."></textarea>
+<!-- entrega el texto encriptado o desencriptado-->
+    <label class="textresultado" for="resultado-text">Resultado</label>
+    <textarea id="resultado-text" placeholder="Escribe arriba tu texto que deseas resolver"></textarea>
+  </div>
+<!-- Botones de opciones-->
+<div class="boton-incriptado">
+    <button  id="incriptado" name="opcion" value="incriptado" class="opcion-boton activado">Incriptar!</button>
+  </div>
+      <div class="boton-desencriptado">
+      <button id="desencriptado" name="opcion" value="desencriptado" class="opcion-boton">Desencriptar!</button>
+    </div>
+      <!--Boton copiar texto-->
+      <div class="boton-copiar">
+      <button id="copiar-boton">Copiar</button>
+      </div>
+    </div>
+    <div class="solo-letas">
+      <label>&#128712;Solo letras minúsculas y sin acentos</label>
+    </div>
+</body>
+
+</html>
+<script>
+    //variables
+    var incriptadoBoton = document.getElementById("incriptado");
+    var desencriptadoBoton = document.getElementById("desencriptado");
+    var ingresaText = document.getElementById("ingresa-text");
+    var resultadoText = document.getElementById("resultado-text");
+    var copiarBoton = document.getElementById("copiar-boton");
+
+    //funcion para incriptar el texto
+    function incriptado(text){
+        var incriptadoText = text.replace(/e/g, "enter");
+        incriptadoText = incriptadoText.replace(/i/g, "imes");
+        incriptadoText = incriptadoText.replace(/a/g, "ai");
+        incriptadoText = incriptadoText.replace(/o/g, "ober");
+        incriptadoText = incriptadoText.replace(/u/g, "ufat");
+        return incriptadoText;
+    }
+    //funcionar para descrinptar el texto
+    function desencriptado(text) {
+        var desencriptadoText = text.replace(/enter/g, "e");
+        desencriptadoText = desencriptadoText.replace(/imes/g, "i");
+        desencriptadoText = desencriptadoText.replace(/ai/g, "a");
+        desencriptadoText = desencriptadoText.replace(/ober/g, "o");
+        desencriptadoText = desencriptadoText.replace(/ufat/g, "u");
+        return desencriptadoText;
+    }
+ //funcionar para el boton copiado -- PENDIENTE
+    function copyToClipboard(text) {
+        var textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+    }
+
+    //Funcion para cambiar el resultado del texto (incriptado/desencriptado)
+    function resultado() {
+  if(incriptadoBoton.classList.contains("activo")){
+    resultadoText.value = incriptado(ingresaText.value);
+  } else {
+    resultadoText.value = desencriptado(ingresaText.value);
+  }
+}
+
+  //Resultado
+  //boton incriptar
+    incriptadoBoton.addEventListener("click", function() {
+      resultadoText.value = incriptado(ingresaText.value);
+      ingresaText.value = ""; //limpia el cuadro
+      });
+      //boton desencriptar
+    desencriptadoBoton.addEventListener("click", function(){
+      resultadoText.value = desencriptado(ingresaText.value);
+      ingresaText.value = ""; //limpia el cuadro
+    });
+    //boton copiar
+    copiarBoton.addEventListener("click", function() {
+    var resultadoText = document.getElementById("resultado-text");
+    copyToClipboard(resultadoText.value);
+    ingresaText.value = "";
+    resultadoText.value = "";
+    });
+</script>

@@ -1,0 +1,92 @@
+/* Estilos generales */
+body {
+  background-color: #f5f5f5;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+.contenido {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.text-contenido {
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-style: italic;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #444;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  resize: none;
+}
+
+.opcion-boton-container {
+  text-align: center;
+}
+
+.opcion-boton {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.opcion-boton:hover {
+  background-color: #43a047;
+}
+
+#copiar-boton-container {
+  text-align: center;
+}
+
+.boton-copiar {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#copiar-boton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2196f3;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#copiar-boton:hover {
+  background-color: #1e88e5;
+}
+
+.solo-letas {
+  position: absolute;
+  bottom: 25px;
+  left: 500px;
+  text-align: center;
+  font-size: 18px;
+  color: #999;
+}
